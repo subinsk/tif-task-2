@@ -1,5 +1,5 @@
 import { Button, Flex, Box } from "@chakra-ui/react";
-import React from "react";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
 import FormSelect from "../../components/formComponents/FormSelect";
 import { useFormik } from "formik";
 import { PageNumbers } from "../../interface/home";
@@ -12,7 +12,8 @@ import {
 
 const InterviewDetailsForm: React.FC<{
   handleTab: (n: PageNumbers) => void;
-}> = ({ handleTab }) => {
+  setInterviewSettings: Dispatch<SetStateAction<IInterViewSettings>>;
+}> = ({ handleTab, setInterviewSettings }) => {
   const {
     errors,
     touched,
@@ -31,6 +32,10 @@ const InterviewDetailsForm: React.FC<{
       alert("Form successfully submitted");
     },
   });
+
+  useEffect(() => {
+    setInterviewSettings(values);
+  }, [setInterviewSettings, values]);
 
   return (
     <Box width="100%" as="form" onSubmit={handleSubmit as any}>

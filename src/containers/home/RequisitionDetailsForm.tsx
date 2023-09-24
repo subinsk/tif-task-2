@@ -1,5 +1,5 @@
 import { Button, Flex, Box } from "@chakra-ui/react";
-import React from "react";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
 import FormInput from "../../components/formComponents/FormInput";
 import FormSelect from "../../components/formComponents/FormSelect";
 import { useFormik } from "formik";
@@ -10,7 +10,8 @@ import { genderOptions, urgencyOptions } from "./constants";
 
 const RequisitionDetailsForm: React.FC<{
   handleTab: (n: PageNumbers) => void;
-}> = ({ handleTab }) => {
+  setRequisitionDetails: Dispatch<SetStateAction<IRequisitionDetails>>;
+}> = ({ handleTab, setRequisitionDetails }) => {
   const {
     handleChange,
     errors,
@@ -42,6 +43,10 @@ const RequisitionDetailsForm: React.FC<{
       handleTab(1);
     },
   });
+
+  useEffect(() => {
+    setRequisitionDetails(values);
+  }, [setRequisitionDetails, values]);
 
   return (
     <Box width="100%" as="form" onSubmit={handleSubmit as any}>
