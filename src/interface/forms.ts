@@ -10,11 +10,11 @@ export interface IFormInputProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?:
-  | string
-  | string[]
-  | FormikErrors<any>
-  | FormikErrors<any>[]
-  | undefined;
+    | string
+    | string[]
+    | FormikErrors<any>
+    | FormikErrors<any>[]
+    | undefined;
   touched?: boolean | FormikTouched<any> | FormikTouched<any>[] | undefined;
   inputProps?: InputProps;
   wrapperProps?: FormControlProps;
@@ -49,7 +49,6 @@ export interface IInterviewSettingsValues {
   interviewDuration: string;
   interviewLanguage: string;
 }
-
 
 export interface IInterViewSettings {
   interviewMode: string;

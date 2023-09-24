@@ -75,6 +75,7 @@ const FormSelect: React.FC<IFormSelectProps> = ({
             backgroundColor: theme.colors.inputBg,
             borderRadius: "10px",
             fontSize: ".875rem",
+
             fontWeight: "500",
             "&:hover": {
               border: `1px solid ${theme.colors.primary}`,
